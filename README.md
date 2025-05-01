@@ -8,6 +8,10 @@ Edit "System Variable" also add the location "C:\Java\jdk\bin" then press OK.
 
 After succesfully installing the Java, 
 Download [*Hadoop*](https://dlcdn.apache.org/hadoop/common/hadoop-3.4.0/hadoop-3.4.0.tar.gz) and extract it, and 
-Rename the folder "hadoop-3.4.0" as "hadoop".
+Rename the folder "hadoop-3.4.0" as "hadoop". Then delete the "bin" folder from the "hadoop" folder. 
+Download the "bin" folder from this github repository, extract it and paste in the "hadoop" folder.
+
+
+
 
 
