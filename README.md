@@ -6,4 +6,8 @@ After changing these stuff go to *Environmental Variable* and add "JAVA_HOME" wi
 Edit "System Variable" also add the location "C:\Java\jdk\bin" then press OK.
 # Open CMD on your search bar. Then hit Enter. Check the java version by "java -version" command.
 
-After succesfully installing the Java, Download [*Hadoop*](https://www.apache.org/dyn/closer.cgi/hadoop/common/hadoop-3.4.0/hadoop-3.4.0-src.tar.gz)
+After succesfully installing the Java, 
+Download [*Hadoop*](https://dlcdn.apache.org/hadoop/common/hadoop-3.4.0/hadoop-3.4.0.tar.gz) and extract it, and 
+Rename the folder "hadoop-3.4.0" as "hadoop".
+
+
