@@ -1,59 +1,173 @@
 # Hadoop-installation-guide
 
-# Download Necessary Files
-At First we have to Download this repository. And extract it.
 
-## Download and install Java 
-### Download Java
-Download Oracle Java with this official link
-*Oracle [Java](https://www.oracle.com/apac/java/technologies/javase/javase8-archive-downloads.html#license-lightbox)* and 
-with creating an account.
+## 1. Prerequisites
 
-### Install Java
-Install Oracle Java and change the destination folder to *C:\Java*. 
-After installation move the *jdk-1.8* folder from *C:\Program Files\Java* to *C:\Java* and 
-delete the *Java* folder from *Program Files*.
+* **Operating System**: Windows 10 or later
+* **Disk Space**: ≥ 5 GB free
 
-### Set up Environmental Variables for Java
-After changing these stuff go to *Environmental Variable*
-At User Variable add 
-      Variable Name: *JAVA_HOME* with 
-      Variable Value: *C:\Java\jdk-1.8\bin* and 
-At the System Variable Edit Path and add
-      *C:\Java\jdk-1.8\bin* then press OK.
+---
 
-### Checking the Status of Java
-Open CMD on your search bar. Then hit Enter. Check the java version by *java -version* command.
+## 2. Java Installation
 
-## Download and Install Hadoop 
-### Download Hadoop
-Download [*Hadoop*](https://dlcdn.apache.org/hadoop/common/hadoop-3.4.0/hadoop-3.4.0.tar.gz) and 
-open *WinRar* as Administrator and extract *hadoop-3.4.0.tar.gz* on *C:\*
+1. **Download JDK 8**
 
-Rename the folder "hadoop-3.4.0" as "hadoop".
-Delete the "bin" folder from the "hadoop" folder. 
-Copy and Paste *bin* and *data* folder from this repository to the *C:\hadoop* folder.
+   * Visit Oracle’s Java SE 8 Archive Downloads:
+     [https://www.oracle.com/apac/java/technologies/javase/javase8-archive-downloads.html#license-lightbox](https://www.oracle.com/apac/java/technologies/javase/javase8-archive-downloads.html#license-lightbox)
+   * Create (or log in to) your Oracle account, accept the license agreement, and download the Windows x64 installer.
 
-After that copy files from the *Necessary Files for Hadoop* folder and paste them on *C:\hadoop\etc\hadoop* folder.
+2. **Install to `C:\Java`**
 
-Then set environmental variables
-in User Variables
-add a new variable with name: HADOOP_HOME
-with value: C:\hadoop
+   * Run the installer.
+   * When prompted for the destination folder, change it to:
 
-and in the System Variables,
-Edit and add two new values: 1. C:\hadoop\bin
-                             2. C:\hadoop\sbin
+     ```
+     C:\Java
+     ```
+   * Complete the installation.
 
-Then go to your windows search bar and type CMD and press enter then type *cd C:\hadoop\etc\hadoop*
-Format the Namenode
-Formatting the NameNode is done once when hadoop is installed and not for running hadoop filesystem, else it will delete all the data inside HDFS.
+3. **Relocate JDK Folder**
 
-now let us start with start the dfs and yarn command 
-  *start-dfs.cmd*
-  *start-yarn.cmd*
+   * If the installer created `C:\Program Files\Java\jdk-1.8`, move this entire `jdk-1.8` folder to `C:\Java\jdk-1.8`.
+   * Delete the `Java` folder from `C:\Program Files` folder.
 
-Now you can access the UI by typing *localhost:9870* on your internet browser.
+4. **Configure Environment Variables**
 
+   * Open **System Properties** → **Advanced** → **Environment Variables**.
+   * Under **User variables**, click **New**:
 
+     * **Variable name**: `JAVA_HOME`
+     * **Variable value**: `C:\Java\jdk-1.8\bin`
+   * Under **System variables**, select **Path** → **Edit** → **New**, then add:
 
+     ```
+     C:\Java\jdk-1.8\bin
+     ```
+   * Click **OK** to apply.
+
+5. **Verify Installation**
+
+   * Open **Command Prompt** and run:
+
+     ```
+     java -version
+     ```
+   * You should see output indicating Java 1.8.x is installed.
+
+---
+
+## 3. Hadoop Installation
+
+### 3.1 Download and Extract
+
+1. **Download Hadoop**
+
+   * Official mirror: [https://dlcdn.apache.org/hadoop/common/hadoop-3.4.0/hadoop-3.4.0.tar.gz](https://dlcdn.apache.org/hadoop/common/hadoop-3.4.0/hadoop-3.4.0.tar.gz)
+
+2. **Extract to `C:\hadoop`**
+
+   * Run WinRAR (as Administrator) or another archive tool.
+   * Extract `hadoop-3.4.0.tar.gz` to `C:\`
+   * Rename the extracted folder from `hadoop-3.4.0` to:
+
+     ```
+     C:\hadoop
+     ```
+
+3. **Populate Binaries and Configuration**
+
+   * Delete the existing `C:\hadoop\bin` directory.
+   * From your downloaded repository, copy the provided `bin\` and `data\` folders into `C:\hadoop`.
+   * Copy all configuration files from “Necessary Files for Hadoop” into:
+
+     ```
+     C:\hadoop\etc\hadoop
+     ```
+
+### 3.2 Configure Environment Variables
+
+1. **User Variables**
+
+   * **New variable**:
+
+     * **Name**: `HADOOP_HOME`
+     * **Value**: `C:\hadoop\bin`
+
+2. **System Variables**
+
+   * Edit **Path**, then **New** → add:
+
+     ```
+     C:\hadoop\bin
+     C:\hadoop\sbin
+     ```
+   * Apply changes.
+
+### 3.3 Initializing HDFS
+
+1. **Verify Hadoop**
+
+   * Open a new Command Prompt (Admin) and execute:
+
+     ```
+     hadoop version
+     ```
+2. **Format NameNode**
+
+   * In Administrator Command Prompt, run:
+
+     ```
+     hdfs namenode -format
+     ```
+
+   > **Note:** Only format once during initial setup. Formatting again will erase all HDFS data.
+
+---
+
+## 4. Starting Hadoop Services
+
+1. **Run CMD as administrator and locate sbin folder**
+    ```
+    C:\Windows\System32> cd C:\hadoop\sbin 
+    ```
+
+2. **Start HDFS**
+
+   ```
+   C:\hadoop\sbin> start-dfs.cmd
+   ```
+2. **Start YARN**
+
+   ```
+   C:\hadoop\sbin> start-yarn.cmd
+   ```
+3. **Verify with JPS**
+
+   ```
+   C:\hadoop\sbin> jps
+   ```
+
+   You should see processes such as `NameNode`, `DataNode`, `ResourceManager`, etc.
+
+---
+
+## 5. Web Interfaces
+
+* **HDFS NameNode UI**: [http://localhost:9870](http://localhost:9870)
+* **YARN ResourceManager UI**: [http://localhost:8088](http://localhost:8088)
+
+---
+
+## 6. Troubleshooting & Tips
+
+* Always run Command Prompt **as Administrator** when interacting with Hadoop scripts.
+* If you modify configuration files (`core-site.xml`, `hdfs-site.xml`, etc.), restart services:
+
+  ```
+  stop-dfs.cmd
+  stop-yarn.cmd
+  start-dfs.cmd
+  start-yarn.cmd
+  ```
+* Check log files in `C:\hadoop\logs` for error details.
+* Ensure no other services occupy ports 9870 or 8088.
