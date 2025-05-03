@@ -1,30 +1,40 @@
 # Hadoop-installation-guide
-## Download Java
+
+# Download Necessary Files
 At First we have to Download this repository. And extract it.
-Then you can install Java from this downloaded repository or with this official link
+
+## Download and install Java 
+### Download Java
+Download Oracle Java with this official link
 *Oracle [Java](https://www.oracle.com/apac/java/technologies/javase/javase8-archive-downloads.html#license-lightbox)* and 
-need to create an account to download the software.
+with creating an account.
 
-# Install Java
-Then install it and change the destination folder to *C:\Java*. 
-After default installation move the *jdk-1.8* folder from *C:\Program Files\Java* to *C:\Java* and 
-delete the  *Java* folder from *Program Files*.
+### Install Java
+Install Oracle Java and change the destination folder to *C:\Java*. 
+After installation move the *jdk-1.8* folder from *C:\Program Files\Java* to *C:\Java* and 
+delete the *Java* folder from *Program Files*.
 
-# Set up Environmental Variables for Java
+### Set up Environmental Variables for Java
 After changing these stuff go to *Environmental Variable*
 At User Variable add 
-      Variable Name: *JAVA_HOME* with Variable Value: *C:\Java\jdk-1.8\bin* and 
+      Variable Name: *JAVA_HOME* with 
+      Variable Value: *C:\Java\jdk-1.8\bin* and 
 At the System Variable Edit Path and add
       *C:\Java\jdk-1.8\bin* then press OK.
 
-# Checking the Status of Java
+### Checking the Status of Java
 Open CMD on your search bar. Then hit Enter. Check the java version by *java -version* command.
 
-After succesfully installing the Java, 
-Download [*Hadoop*](https://dlcdn.apache.org/hadoop/common/hadoop-3.4.0/hadoop-3.4.0.tar.gz) and extract it, and 
-Rename the folder "hadoop-3.4.0" as "hadoop". Then delete the "bin" folder from the "hadoop" folder. 
-Download the "bin" and "data" folder from this github repository, extract it and paste in the "hadoop" folder.
-After that copy files from the "necessary Files for Hadoop" folder and paste it on "C:\hadoop\etc\hadoop" folder.
+## Download and Install Hadoop 
+### Download Hadoop
+Download [*Hadoop*](https://dlcdn.apache.org/hadoop/common/hadoop-3.4.0/hadoop-3.4.0.tar.gz) and 
+open *WinRar* as Administrator and extract *hadoop-3.4.0.tar.gz* on *C:\*
+
+Rename the folder "hadoop-3.4.0" as "hadoop".
+Delete the "bin" folder from the "hadoop" folder. 
+Copy and Paste *bin* and *data* folder from this repository to the *C:\hadoop* folder.
+
+After that copy files from the *Necessary Files for Hadoop* folder and paste them on *C:\hadoop\etc\hadoop* folder.
 
 Then set environmental variables
 in User Variables
