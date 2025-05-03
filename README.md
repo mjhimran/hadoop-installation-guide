@@ -6,7 +6,9 @@ Then you can install Java from this downloaded repository or with this official 
 need to create an account to download the software.
 
 # Install Java
-Then install it and change the destination folder to *C:\Java*. After default installation move the *jdk-1.8* folder from *C:\Program Files\Java* to *C:\Java* and delete the  *Java* folder from *Program Files*.
+Then install it and change the destination folder to *C:\Java*. 
+After default installation move the *jdk-1.8* folder from *C:\Program Files\Java* to *C:\Java* and 
+delete the  *Java* folder from *Program Files*.
 
 # Set up Environmental Variables for Java
 After changing these stuff go to *Environmental Variable*
