@@ -1,11 +1,22 @@
 # Hadoop-installation-guide
-At First we have to Download "Necessary Files for Hadoop" from this repository.
+## Download Java
+At First we have to Download this repository. And extract it.
+Then you can install Java from this downloaded repository or with this official link
 *Oracle [Java](https://www.oracle.com/apac/java/technologies/javase/javase8-archive-downloads.html#license-lightbox)* and 
-need to create an account to download the software. or download from this repository.
-Then install it on location "C:\Java\jdk" or after default installation move the "jdk-1.8" folder to "C:\Java" and reaname the it "jdk-1.8" to "jdk".
-After changing these stuff go to *Environmental Variable* and add "JAVA_HOME" with variable value: "C:\Java\jdk\bin" at "User Variables" and 
-Edit "System Variable" also add the location "C:\Java\jdk\bin" then press OK.
-# Open CMD on your search bar. Then hit Enter. Check the java version by "java -version" command.
+need to create an account to download the software.
+
+# Install Java
+Then install it and change the location to *C:\Java*. After default installation move the *jdk-1.8* folder from *C:\Program Files\Java* to *C:\Java* and delete the  *Java* folder from *Program Files*.
+
+# Set up Environmental Variables for Java
+After changing these stuff go to *Environmental Variable*
+At User Variable add 
+      Variable Name: *JAVA_HOME* with Variable Value: *C:\Java\jdk-1.8\bin* and 
+At the System Variable Edit Path and add
+      *C:\Java\jdk-1.8\bin* then press OK.
+
+# Checking the Status of Java
+Open CMD on your search bar. Then hit Enter. Check the java version by *java -version* command.
 
 After succesfully installing the Java, 
 Download [*Hadoop*](https://dlcdn.apache.org/hadoop/common/hadoop-3.4.0/hadoop-3.4.0.tar.gz) and extract it, and 
